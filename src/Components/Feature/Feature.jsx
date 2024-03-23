@@ -4,7 +4,7 @@ import { FaHandHoldingDollar } from "react-icons/fa6";
 const Feature = ({ data }) => {
     const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = data
     return (
-        <div className="border border-[#e8e8e823] rounded-lg p-10">
+        <div className="border border-[#e8e8e823] rounded-lg p-10 mx-5">
             <img src={logo} alt="" className="mb-10"/>
             <h3 className="my-2 text-2xl font-extrabold">{job_title}</h3>
             <h4 className="my-2 text-xl text-[#757575] font-semibold ">{company_name}</h4>

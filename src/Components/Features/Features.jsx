@@ -14,15 +14,15 @@ const Features = () => {
     }
     return (
         <div className="text-center my-10">
-            <h2 className="text-5xl ">Featured Jobs : {data.length}</h2>
+            <h2 className="text-5xl my-2">Featured Jobs </h2>
             <p className="text-[#757575] font-medium ">Explore thousands of job opportunities with all the information you need. Its your future</p>
-            <div className="grid md:grid-cols-2 text-start gap-5">
+            <div className="grid md:grid-cols-2 text-start gap-5 max-w-[1600px] mx-auto my-10">
                 {
                     data.slice(0, showData).map(data => <Feature key={data.id} data={data}></Feature>)
                 }
             </div>
             <div className={showData === data.length && "hidden"}>
-                <button onClick={showAll} className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg border-none text-white text-xl py-4 px-6 font-extrabold  my-8 ">See All Jobs</button>
+                <button onClick={showAll} className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg border-none text-white text-xl py-4 px-6 font-extrabold  mb-8 ">See All Jobs</button>
             </div>
         </div >
     );
