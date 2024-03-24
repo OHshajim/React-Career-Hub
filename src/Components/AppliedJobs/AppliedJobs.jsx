@@ -6,7 +6,7 @@ const AppliedJobs = () => {
                 <h1 className="text-3xl font-extrabold  h-[300px] flex justify-center items-center ">Applied Jobs</h1>
                 <img src="../../../src/assets/images/bg1.png" alt="" className="absolute left-0 bottom-0" />
             </div>
-                <img src="../../../src/assets/images/bg2.png" alt="" className="absolute right-0 top-0 " />
+                <img src="" alt="" className="absolute right-0 top-0 " />
         </div>
     );
 };
