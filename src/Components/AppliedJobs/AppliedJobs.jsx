@@ -6,14 +6,33 @@ import AppliedJob from "../AppliedJob/AppliedJob";
 const AppliedJobs = () => {
     const jobs = useLoaderData();
     const [JobApplied, setJobApplied] = useState([])
+    const [displayApplied, setDisplayApplied] = useState([])
     useEffect(() => {
         const storedJobsId = getStoredApplication()
         if (jobs.length) {
             const JobApplied = jobs.filter(job => storedJobsId.includes(job.id))
             console.log(jobs, JobApplied);
             setJobApplied(JobApplied)
+            setDisplayApplied(JobApplied)
         }
     }, [jobs])
+
+    function handleFilter (filter){
+        if(filter==="All"){
+            setDisplayApplied(JobApplied)
+        }
+        else if(filter==="Remote"){
+            const RemoteData = JobApplied.filter(job=>job.remote_or_onsite==="Remote")
+            setDisplayApplied(RemoteData)
+        }
+        else if(filter==="Onsite"){
+            const onSiteData = JobApplied.filter(job=>job.remote_or_onsite==="Onsite")
+            setDisplayApplied(onSiteData)
+        }
+        else{
+            return null ;
+        }
+    }
     return (
         <div>
             <div className=" bg-gradient-to-r from-[#7E90FE0D] to-[#9873FF0D] ">
@@ -23,9 +42,19 @@ const AppliedJobs = () => {
                 </div>
                 <img src="" alt="" className="absolute right-0 top-0 " />
             </div>
-            <div className="my-20">
+            <div className="flex justify-center mt-20">
+                <details className="dropdown">
+                    <summary className="m-1 btn">open or close</summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                        <li onClick={()=>handleFilter('All')}><a>All</a></li>
+                        <li onClick={()=>handleFilter('Remote')}><a>Remote</a></li>
+                        <li onClick={()=>handleFilter('Onsite')}><a>Onsite</a></li>
+                    </ul>
+                </details>
+            </div>
+            <div className="mb-20">
                 {
-                    JobApplied.map(data=><AppliedJob key={data.id} appliedJob={data}></AppliedJob>)
+                    displayApplied.map(data => <AppliedJob key={data.id} appliedJob={data}></AppliedJob>)
                 }
             </div>
         </div>

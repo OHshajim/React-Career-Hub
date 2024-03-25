@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { MdOutlineShareLocation } from "react-icons/md";
 import { FaHandHoldingDollar } from "react-icons/fa6";
+import PropTypes from 'prop-types'; // ES6
 
 const AppliedJob = ({ appliedJob }) => {
-    const { job_title, company_name, remote_or_onsite, location, job_type, salary, job_description, job_responsibility, educational_requirements, experiences, contact_information, logo, id } = appliedJob
+    const { job_title, company_name, remote_or_onsite, location, job_type, salary, logo, id } = appliedJob
     return (
-        <div className="max-w-7xl mx-auto my-8 bg-base-100 shadow-xl p-8">
-            <div className="card lg:card-side  gap-5">
+        <div className="m-8">
+            <div className="card lg:card-side  gap-5 max-w-7xl mx-auto my-8 bg-base-100 shadow-xl p-8">
                 <figure><img src={logo} alt="Movie" className="w-[200px]" /></figure>
                 <div className="card-body lg:flex-row items-center">
                     <div className="flex-1 space-y-3">
@@ -38,5 +39,7 @@ const AppliedJob = ({ appliedJob }) => {
         </div>
     );
 };
-
+AppliedJob.propTypes = {
+    appliedJob: PropTypes.object,
+}
 export default AppliedJob;
