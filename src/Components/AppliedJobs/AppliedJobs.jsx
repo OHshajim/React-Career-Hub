@@ -1,15 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredApplication } from "../Utility/LocalStorage";
+import AppliedJob from "../AppliedJob/AppliedJob";
 
 const AppliedJobs = () => {
     const jobs = useLoaderData();
+    const [JobApplied, setJobApplied] = useState([])
     useEffect(() => {
         const storedJobsId = getStoredApplication()
         if (jobs.length) {
-
             const JobApplied = jobs.filter(job => storedJobsId.includes(job.id))
             console.log(jobs, JobApplied);
+            setJobApplied(JobApplied)
         }
     }, [jobs])
     return (
@@ -21,8 +23,10 @@ const AppliedJobs = () => {
                 </div>
                 <img src="" alt="" className="absolute right-0 top-0 " />
             </div>
-            <div>
-                
+            <div className="my-20">
+                {
+                    JobApplied.map(data=><AppliedJob key={data.id} appliedJob={data}></AppliedJob>)
+                }
             </div>
         </div>
     );
