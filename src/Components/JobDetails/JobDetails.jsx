@@ -8,7 +8,7 @@ const JobDetails = () => {
     const { id } = useParams()
     const details = jobs.find(job => job.id === parseInt(id))
     const { job_title, company_name, remote_or_onsite, location, job_type, salary, job_description, job_responsibility, educational_requirements, experiences, contact_information } = details
-    console.log(jobs, id, details);
+    // console.log(jobs, id, details);
     return (
         <div>
             <div className=" bg-gradient-to-r from-[#7E90FE0D] to-[#9873FF0D] ">

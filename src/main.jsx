@@ -9,6 +9,8 @@ import Home from './Components/Home/Home';
 import Root from './Components/Root/Root';
 import AppliedJobs from './Components/AppliedJobs/AppliedJobs';
 import JobDetails from './Components/JobDetails/JobDetails';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/applied",
         element: <AppliedJobs></AppliedJobs> ,
+        loader:()=>fetch('../public/data/jobs.json')
       },
       {
         path: "/detail/:id",
@@ -36,5 +39,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </React.StrictMode>,
 )

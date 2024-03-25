@@ -21,7 +21,7 @@ const Features = () => {
                     data.slice(0, showData).map(data => <Feature key={data.id} data={data}></Feature>)
                 }
             </div>
-            <div className={showData === data.length && "hidden"}>
+            <div className={`${showData === data.length && "hidden"}`}>
                 <button onClick={showAll} className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-lg border-none text-white text-xl py-4 px-6 font-extrabold  mb-8 ">See All Jobs</button>
             </div>
         </div >
