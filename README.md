@@ -1,1 +1,1 @@
-live link : https://660189c18830fb23e9c9938b--dapper-fox-08a8b6.netlify.app/
+live link : https://6601a6aa1d391a106943468f--fascinating-marshmallow-ad94a4.netlify.app/applied

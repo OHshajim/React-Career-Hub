@@ -1,17 +1,10 @@
 import { MdOutlineShareLocation } from "react-icons/md";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-import { saveApplications } from "../Utility/LocalStorage";
-import {  toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 const Feature = ({ data }) => {
-    const handleApply = () => {
-        saveApplications(id)
-        toast("Applied Successfully")
-        console.log("toast ");
-    }
+   
     const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary, id } = data
     return (
         <div>
@@ -34,7 +27,7 @@ const Feature = ({ data }) => {
                     </div>
                 </div>
                 <NavLink to={`/detail/${id}`}>
-                    <button onClick={handleApply}
+                    <button 
                     className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] rounded-md border-none text-white text-xl  px-4 font-extrabold btn my-3 ">
                     View Details</button>
                 </NavLink>
