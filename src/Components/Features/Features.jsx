@@ -5,7 +5,7 @@ const Features = () => {
     const [data, setData] = useState([])
     const [showData, setShowData] = useState(4)
     useEffect(() => {
-        fetch("../../../public/data/jobs.json")
+        fetch("../data/jobs.json")
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
