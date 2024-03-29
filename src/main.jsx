@@ -9,8 +9,9 @@ import Home from './Components/Home/Home';
 import Root from './Components/Root/Root';
 import AppliedJobs from './Components/AppliedJobs/AppliedJobs';
 import JobDetails from './Components/JobDetails/JobDetails';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -19,17 +20,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home> ,
+        element: <Home></Home>,
       },
       {
         path: "/applied",
-        element: <AppliedJobs></AppliedJobs> ,
-        loader:()=>fetch('../data/jobs.json')
+        element: <AppliedJobs></AppliedJobs>,
+        loader: () => fetch('../data/jobs.json')
       },
       {
         path: "/detail/:id",
-        element: <JobDetails></JobDetails> ,
-        loader:()=>fetch('../data/jobs.json')
+        element: <JobDetails></JobDetails>,
+        loader: () => fetch('../data/jobs.json')
       },
     ],
 
@@ -38,7 +39,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
     <ToastContainer />
   </React.StrictMode>,
 )

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredApplication } from "../Utility/LocalStorage";
 import AppliedJob from "../AppliedJob/AppliedJob";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
     const jobs = useLoaderData();
@@ -35,6 +36,7 @@ const AppliedJobs = () => {
     }
     return (
         <div>
+            <Helmet><title>Career hub : applied Jobs</title></Helmet>
             <div className=" bg-gradient-to-r from-[#7E90FE0D] to-[#9873FF0D] ">
                 <div className="relative">
                     <h1 className="text-3xl font-extrabold  h-[300px] flex justify-center items-center ">Applied Jobs</h1>
